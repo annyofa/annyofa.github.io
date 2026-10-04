@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annisa Mutiara Yofa | Game Developer & 2D Artist</title>
+<meta name="description" content="Portofolio Annisa Mutiara Yofa: game developer dan 2D artist dari Semarang. Karya game, aset, dan sertifikat.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐐</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf5ff;--card:#fff;--ink:#2a2250;--mute:#625b8c;--line:#d9c9f5;--accent:#c8365f;--gold:#f5a623}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150f2e;--card:#221a47;--ink:#f3eaff;--mute:#b4a9e0;--line:#3b2f70;--accent:#ff7a9c}}
+:root[data-theme="dark"]{--bg:#150f2e;--card:#221a47;--ink:#f3eaff;--mute:#b4a9e0;--line:#3b2f70;--accent:#ff7a9c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.7}
+h1,h2,h3,.px{font-family:"Press Start 2P",ui-monospace,monospace;line-height:1.5;font-weight:400}
+a{color:var(--accent)}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:3px solid var(--ink);display:flex;gap:6px 18px;flex-wrap:wrap;justify-content:center;padding:12px}
+nav a{font-family:"Press Start 2P",monospace;font-size:.62rem;color:var(--ink);text-decoration:none;padding:4px 2px}
+nav a:hover{color:var(--accent)}
+section{max-width:1000px;margin:0 auto;padding:56px 18px}
+.hero{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:center;padding-top:48px}
+.hero h1{font-size:clamp(1.3rem,4.5vw,2.2rem);margin:0 0 12px}
+.hero p{max-width:46ch;margin:0 0 16px;color:var(--mute)}
+.stage{position:relative;width:min(300px,100%);aspect-ratio:300/220;border:4px solid var(--ink);overflow:hidden;cursor:pointer;background:#2a2250;touch-action:manipulation}
+.stage canvas{display:block;width:100%;height:100%}
+.bubble{position:absolute;left:50%;top:8px;transform:translateX(-50%);background:#fff;color:#2a2250;border:3px solid #2a2250;padding:7px 10px;font-family:"Press Start 2P",monospace;font-size:.56rem;white-space:nowrap;pointer-events:none}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-9px;width:10px;height:10px;background:#fff;border:solid #2a2250;border-width:0 3px 3px 0;transform:translateX(-50%) rotate(45deg)}
+.bubble.pop{animation:pop .35s steps(4,end)}
+@keyframes pop{0%{transform:translateX(-50%) scale(.5)}70%{transform:translateX(-50%) scale(1.12)}100%{transform:translateX(-50%) scale(1)}}
+.btn{display:inline-block;font-family:"Press Start 2P",monospace;font-size:.62rem;padding:12px 14px;border:3px solid var(--ink);background:var(--accent);color:#fff;text-decoration:none;box-shadow:4px 4px 0 var(--ink);margin:0 8px 8px 0}
+.btn.alt{background:var(--card);color:var(--ink)}
+h2{font-size:1rem;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.card{background:var(--card);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);display:flex;flex-direction:column}
+.thumb{height:140px;display:grid;place-items:center;font-size:3rem;border-bottom:3px solid var(--ink);background:linear-gradient(135deg,#5b3a7a,#c8567a);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;image-rendering:auto}
+.body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h3{font-size:.72rem;margin:0}
+.body p{margin:0;font-size:.92rem;color:var(--mute)}
+.meta{font-size:.8rem;color:var(--mute)}
+.links{margin-top:auto;padding-top:8px;display:flex;gap:14px;flex-wrap:wrap;font-weight:700}
+.badge{align-self:flex-start;font-size:.7rem;font-weight:700;border:2px solid var(--ink);padding:0 8px;background:var(--gold);color:#2a2250}
+.about p{max-width:62ch}
+
+.skills{display:flex;gap:8px;flex-wrap:wrap;padding:0;list-style:none;margin:16px 0 0}
+.skills li{border:2px solid var(--ink);background:var(--card);padding:2px 12px;font-weight:700;font-size:.9rem}
+footer{border-top:3px solid var(--ink);text-align:center;padding:24px 12px;font-size:.85rem;color:var(--mute)}
+.proj{border:3px solid var(--ink);background:var(--card);box-shadow:6px 6px 0 var(--ink);margin-bottom:40px}
+.proj-head{display:flex;flex-wrap:wrap;gap:22px;padding:20px;border-bottom:3px solid var(--ink)}
+.proj-head img.poster{display:block;flex:none;width:200px;max-width:100%;height:auto;border:3px solid var(--ink);align-self:flex-start}
+.proj-info{flex:1;min-width:240px}
+.proj-info h3{font-size:.95rem;margin:8px 0 10px}
+.proj-info p{margin:0 0 12px;color:var(--mute)}
+dl{margin:0 0 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:.92rem}
+dt{font-weight:700}dd{margin:0;color:var(--mute)}
+.proj-body{padding:20px}
+.proj-body h4{font-family:"Press Start 2P",monospace;font-weight:400;font-size:.65rem;margin:0 0 14px}
+.shot{display:block;position:relative;overflow:hidden;aspect-ratio:16/9;border-bottom:3px solid var(--ink);background:#2a2250;cursor:zoom-in}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.shot.asset{background:#fff;aspect-ratio:1/1}.shot.asset img{object-fit:contain;padding:10px}.shot.pix img{image-rendering:pixelated}
+.grid.small{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+dialog{border:4px solid var(--ink);background:var(--card);color:var(--ink);padding:12px;max-width:min(94vw,1000px)}
+dialog::backdrop{background:rgba(10,6,30,.8)}
+dialog img{display:block;max-width:100%;max-height:78vh;margin:0 auto;background:#fff}
+dialog p{margin:10px 0 8px;text-align:center}
+dialog button{font-family:"Press Start 2P",monospace;font-size:.6rem;padding:8px 12px;border:3px solid var(--ink);background:var(--accent);color:#fff;cursor:pointer}
+
+/* ===== animasi & interaksi ===== */
+#prog{position:fixed;top:0;left:0;right:0;height:4px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:20;pointer-events:none}
+nav{transition:box-shadow .3s ease}nav.stuck{box-shadow:0 4px 0 rgba(42,34,80,.14)}
+nav a{position:relative;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+nav a:hover::after,nav a.active::after{transform:scaleX(1)}nav a.active{color:var(--accent)}
+.btn{transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.card{transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.shot img,.thumb img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .shot img,.card:hover .thumb img{transform:scale(1.06)}
+.proj-head img.poster{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.proj-head img.poster:hover{transform:rotate(-2deg) scale(1.04)}
+.skills li{transition:transform .2s ease,background .2s ease}
+.skills li:hover{transform:translateY(-3px) rotate(-1.5deg);background:var(--gold);color:#2a2250}
+.stage{transition:transform .25s ease,box-shadow .25s ease}
+.stage.hot{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
+section h2::after{content:"";display:block;height:4px;width:0;background:var(--accent);margin-top:12px;transition:width .7s .2s ease}
+section h2.seen::after{width:56px}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .stage{animation:up .8s .1s backwards}
+.hero h1{animation:up .7s .25s backwards}
+.hero p{animation:up .7s .4s backwards}
+.hero .btn{animation:up .7s .55s backwards}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}.bubble.pop{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<nav aria-label="Navigasi utama">
+  <a href="#tentang">Tentang</a><a href="#projek">Projek</a><a href="#sertifikat">Sertifikat</a><a href="#kontak">Kontak</a>
+</nav>
+
+<section class="hero" id="atas">
+  <div class="stage" id="stage" role="button" tabindex="0" aria-label="Karakter pixel Annisa menyapa. Tekan untuk membuatnya melompat"><canvas id="cv"></canvas><div class="bubble" id="bubble" aria-hidden="true">hii guys</div></div>
+  <div>
+    <h1>Annisa Mutiara Yofa</h1>
+    <p>Game developer & 2D artist dari Semarang. Membuat game edukasi, pixel art, dan aset visual.</p>
+    <a class="btn" href="#projek">Lihat projek</a><a class="btn alt" href="#kontak">Hubungi aku</a>
+  </div>
+</section>
+
+<section class="about" id="tentang">
+  <h2>Tentang</h2>
+  <p>Lulusan Jurusan Game Interactive Media SMK Negeri 11 Semarang. Teliti, suka berinovasi, dan terbiasa bekerja dalam tim lewat organisasi kepanitiaan sekolah. Membuat game edukasi dengan Unity, mulai dari proyek UKK hingga Internship di Diskominfo Kota Semarang.</p>
+  <ul class="skills" id="skills"></ul>
+</section>
+
+<section id="projek">
+  <h2>Projek</h2>
+  <div id="projects"></div>
+</section>
+
+<section id="sertifikat">
+  <h2>Sertifikat</h2>
+  <div class="grid" id="certs"></div>
+</section>
+
+<section id="kontak">
+  <h2>Kontak</h2>
+  <p id="contact"></p>
+</section>
+<footer>© <span id="yr"></span> Annisa Mutiara Yofa</footer>
+
+<dialog id="lb"><img alt=""><p></p><button id="lbx">Tutup</button></dialog>
+
+<script>
+/* ============ EDIT DATA DI SINI ============ */
+const skills=["Unity","Pixel Art 2D","Ibis Paint X","Adobe Illustrator","Python (dasar)","UI/UX","WordPress & Elementor","JavaScript","Game Edukasi"];
+const AC="assets/projek/alphabet-challenge/", AS="assets/aset/";
+const projects=[
+ {t:"Alphabet Challenge",tag:"Proyek UKK · SMKN 11 Semarang",
+  d:"Game edukasi untuk anak: susun huruf yang teracak menjadi kata bahasa Inggris. Pemain memilih satu dari tiga kategori, lalu mendapat skor dan umpan balik di setiap jawaban.",
+  facts:[["Peran","Game Designer"],["Engine","Unity 2021.3"],["Kategori","Body Parts, Animal Name, Color Fruit"]],
+  hero:AC+"poster.jpg",heroAlt:"Poster Alphabet Challenge",
+  links:[/* ["Main game","https://..."] */],
+  gt:"Screenshot gameplay",mode:"shot",
+  items:[
+   {t:"Menu utama",img:AC+"main-menu.jpg"},
+   {t:"Pilihan kategori",img:AC+"menu-pilihan.jpg"},
+   {t:"Body Parts",d:"Susun nama bagian tubuh",img:AC+"body-parts.jpg"},
+   {t:"Animal Name level 1",d:"Skor dan lanjut level",img:AC+"animal-level-1-skor.jpg"},
+   {t:"Animal Name level 1",d:"Jawaban benar",img:AC+"animal-level-1-benar.jpg"},
+   {t:"Animal Name level 2",img:AC+"animal-level-2.jpg"},
+   {t:"Color Fruit level 1",d:"Umpan balik jawaban salah",img:AC+"color-level-1-salah.jpg"},
+   {t:"Color Fruit level 2",img:AC+"color-level-2.jpg"},
+   {t:"Deskripsi game",img:AC+"deskripsi.jpg"},
+   {t:"Kredit",img:AC+"credit.jpg"}
+  ]},
+ {t:"Semarang Game Series",tag:"Internship · Diskominfo Kota Semarang",
+  d:"Game edukasi bertema Kota Semarang: tebak kata, mencocokkan bentuk 3 level, Warak Pong, dan kuis. Di bawah ini aset 2D yang kubuat untuk game tersebut.",
+  facts:[["Peran","Aset 2D dan script"],["Engine","Unity"],["Isi game","Tebak kata, mencocokkan bentuk, Warak Pong, kuis"]],
+  hero:"",heroAlt:"",
+  links:[],
+  gt:"Aset",mode:"asset",
+  items:[
+   {t:"Putri Jawa",d:"Karakter chibi putri berkebaya",img:AS+"putri-jawa.png"},
+   {t:"Putra Jawa",d:"Karakter chibi putra berpakaian adat Jawa",img:AS+"putra-jawa.png"},
+   {t:"Karakter pixel art",d:"Sprite 2D",img:AS+"karakter-pixel.png",px:true},
+   {t:"Bus Si Kuncung",d:"Ilustrasi livery bus wisata",img:AS+"bus-kuncung.png"},
+   {t:"Bus Kenang",d:"Ilustrasi livery bus wisata",img:AS+"bus-kenang.png"},
+   {t:"Bus Denok",d:"Ilustrasi livery bus wisata",img:AS+"bus-denok.png"},
+   {t:"Bus Feeder Trans Semarang",d:"Ilustrasi bus feeder",img:AS+"bus-feeder.png"}
+  ]}
+];
+/* Isi sertifikat: "link" ke kredensial/PDF, "img" thumbnail. */
+const certs=[
+ {t:"Dasar Pemrograman dengan Python",by:"Aksademy",y:"Februari 2026",link:"https://aksademy.id/certificate/AKS-26469G",img:"assets/sertifikat/python-aksademy.jpg"},
+ {t:"UI/UX (DSF 48.0)",by:"Dibimbing.id · Sertifikat partisipasi",y:"9-11 Februari 2026",link:"assets/sertifikat/uiux-dibimbing.pdf",img:"assets/sertifikat/uiux-dibimbing.jpg"},
+ {t:"Website Lokal Profesional dengan WordPress & Elementor",by:"Aksademy",y:"Februari 2026",link:"https://aksademy.id/certificate/AKS-26RDT7",img:"assets/sertifikat/wordpress-aksademy.jpg"},
+ {t:"Introduction to Systems Analysis",by:"IBM via Coursera",y:"Oktober 2026",link:"https://coursera.org/verify/WC4IZFPOHC90",img:"assets/sertifikat/ibm-systems-analysis.jpg"},
+ {t:"Operating Systems Basics",by:"Cisco Networking Academy",y:"Oktober 2026",link:"assets/sertifikat/cisco-os-basics.pdf",img:"assets/sertifikat/cisco-os-basics.jpg"}
+];
+const contacts=[["Email","mailto:annisamutiarayofa@gmail.com"],["LinkedIn","https://www.linkedin.com/in/annisa-mutiara-yofa-a18379339"],["Instagram","https://www.instagram.com/annyofa"],["YouTube","https://youtube.com/@annyofa"]];
+/* ============================================ */
+const $=id=>document.getElementById(id);
+$("yr").textContent=new Date().getFullYear();
+$("skills").innerHTML=skills.map(s=>`<li>${s}</li>`).join("");
+$("contact").innerHTML=contacts.map(c=>`<a class="btn alt" href="${c[1]}" target="_blank" rel="noopener">${c[0]}</a>`).join("");
+$("projects").innerHTML=projects.map(p=>`<article class="proj">
+ <div class="proj-head">${p.hero?`<img class="poster" src="${p.hero}" alt="${p.heroAlt}" loading="lazy">`:""}
+  <div class="proj-info"><span class="badge">${p.tag}</span><h3>${p.t}</h3><p>${p.d}</p>
+   <dl>${p.facts.map(f=>`<dt>${f[0]}</dt><dd>${f[1]}</dd>`).join("")}</dl>
+   <div class="links">${p.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("")}</div></div></div>
+ <div class="proj-body"><h4>${p.gt}</h4><div class="grid small">${p.items.map(i=>`<article class="card"><a class="shot${p.mode==="asset"?" asset":""}${i.px?" pix":""}" href="${i.img}" data-cap="${i.t}${i.d?" · "+i.d:""}"><img src="${i.img}" alt="${i.t}" loading="lazy"></a><div class="body"><h3>${i.t}</h3>${i.d?`<p>${i.d}</p>`:""}</div></article>`).join("")}</div></div>
+</article>`).join("");
+$("certs").innerHTML=certs.map(c=>`<article class="card"><div class="thumb">${c.img?`<img src="${c.img}" alt="" loading="lazy">`:`<span aria-hidden="true">🏅</span>`}</div><div class="body"><h3>${c.t}</h3><span class="meta">${c.by} · ${c.y}</span><div class="links">${c.link?`<a href="${c.link}" target="_blank" rel="noopener">Lihat sertifikat</a>`:""}</div></div></article>`).join("");
+/* Lightbox: klik gambar untuk memperbesar */
+const lb=$("lb");
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a.shot");
+  if(a){e.preventDefault();lb.querySelector("img").src=a.href;lb.querySelector("p").textContent=a.dataset.cap;lb.showModal();return}
+  if(e.target===lb)lb.close();
+});
+$("lbx").onclick=()=>lb.close();
+
+
+/* ===== Efek scroll: progress, nav aktif, reveal ===== */
+(()=>{
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const nav=document.querySelector("nav"),prog=$("prog"),links=[...nav.querySelectorAll("a")];
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.transform="scaleX("+(h>0?Math.min(1,scrollY/h):0)+")";
+  nav.classList.toggle("stuck",scrollY>10);
+}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+const spy=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));
+}),{rootMargin:"-45% 0px -50% 0px"});
+links.forEach(a=>{const t=document.querySelector(a.getAttribute("href"));if(t)spy.observe(t)});
+const heads=document.querySelectorAll("section h2");
+if(reduce){heads.forEach(h=>h.classList.add("seen"));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target;io.unobserve(el);el.classList.add("in","seen");
+  setTimeout(()=>el.classList.remove("rv","in"),1200);
+}),{threshold:.1,rootMargin:"0px 0px -40px 0px"});
+["section h2",".about p",".skills li",".proj",".proj-body .card","#certs .card","#contact .btn"].forEach(sel=>{
+  document.querySelectorAll(sel).forEach((el,i)=>{
+    el.classList.add("rv");el.style.setProperty("--d",(i%6)*.08+"s");io.observe(el);
+  });
+});
+})();
+/* ===== Maskot hero: pixel art interaktif ===== */
+(()=>{
+const cv=$("cv"),ctx=cv.getContext("2d"),st=$("stage"),bub=$("bubble");
+const W=300,H=220,GY=194,SW=48,SH=130,dpr=Math.min(2,window.devicePixelRatio||1);
+cv.width=W*dpr;cv.height=H*dpr;ctx.scale(dpr,dpr);ctx.imageSmoothingEnabled=false;
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+/* Frame bawaan: 0 diam, 1 kedip, 2 lirik kiri, 3 lirik kanan.
+   Pose baru (melambai, dll.): taruh PNG di assets/aset/ lalu daftarkan di EXTRA, akan diputar bergantian saat diam. */
+const EXTRA=[]; // contoh: ["assets/aset/karakter-hero-wave-1.png","assets/aset/karakter-hero-wave-2.png"]
+const SAPAAN=["hii guys"];
+const load=u=>{const i=new Image();i.src=u;return i};
+const F=[0,1,2,3].map(n=>load("assets/aset/karakter-hero-"+n+".png")),X=EXTRA.map(load);
+const ok=i=>i.complete&&i.naturalWidth>0;
+let inside=false,last=0,y=0,vy=0,air=false,sq=0,blinkEnd=0,nextBlink=2500,nextHop=3500,gaze=0,parts=[],vis=true,si=0;
+function say(){bub.textContent=SAPAAN[si++%SAPAAN.length];bub.classList.remove("pop");void bub.offsetWidth;bub.classList.add("pop")}
+function hop(v,now){if(air)return;vy=-v;air=true}
+function burst(){
+  const c=["#ffd27a","#ff8fb1","#8de0c0","#fff"],L="ABCDEGHKMS";
+  for(let i=0;i<9;i++)parts.push({x:W/2+(Math.random()*30-15),y:GY-95,vx:Math.random()*120-60,vy:-(60+Math.random()*90),ch:L[Math.floor(Math.random()*L.length)],col:c[i%4],life:1});
+}
+function poke(now){hop(240,now);burst();say()}
+st.addEventListener("pointerdown",e=>{e.preventDefault();poke(performance.now())});
+st.addEventListener("pointerenter",e=>{if(e.pointerType==="touch")return;inside=true;st.classList.add("hot");if(!reduce){hop(190,performance.now());say()}});
+st.addEventListener("pointerleave",()=>{inside=false;st.classList.remove("hot")});
+st.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();poke(performance.now())}});
+addEventListener("pointermove",e=>{
+  if(e.pointerType==="touch")return;
+  const r=cv.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2);
+  const th=inside?15:60;gaze=dx<-th?-1:dx>th?1:0;
+});
+new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(st);
+const R=(a,b,w,h,c)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(a),Math.round(b),w,h)};
+const wrap=(x,p)=>((x%p)+p)%p;
+function tugu(x){R(x,GY-9,20,9,"#3a3166");R(x+5,GY-26,10,17,"#332a5c");R(x+8,GY-46,4,20,"#2d2552");R(x+9,GY-50,2,4,"#f5c542")}
+function lawang(x){R(x,GY-22,46,22,"#3a3166");R(x+3,GY-33,7,11,"#332a5c");R(x+36,GY-33,7,11,"#332a5c");for(let i=0;i<6;i++){R(x+4+i*7,GY-17,3,5,i%3?"#f5c542":"#5a4a86")}}
+function cloud(x,yy){ctx.globalAlpha=.55;R(x,yy,26,6,"#f3d4ee");R(x+5,yy-4,14,4,"#f3d4ee");ctx.globalAlpha=1}
+function draw(now){
+  const t=now/1000;
+  ["#2a2250","#5b3a7a","#c8567a","#f59e5b"].forEach((c,i)=>R(0,Math.round(i*GY/4),W,Math.ceil(GY/4)+1,c));
+  R(232,66,18,18,"#ffd27a");R(235,63,12,3,"#ffd27a");R(235,84,12,3,"#ffd27a");
+  [[20,40,9],[170,28,6],[250,100,7]].forEach(c=>{const x=wrap(c[0]-t*c[2],W+40)-30;cloud(x,c[1])});
+  const o=t*10;
+  [[tugu,50],[lawang,200]].forEach(l=>{const x=wrap(l[1]-o,320);l[0](x);l[0](x-320)});
+  R(0,GY,W,H-GY,"#2b2540");R(0,GY,W,3,"#6bbf6b");
+  for(let i=-1;i<14;i++)R(i*24-wrap(t*30,24),GY+16,12,2,"#f5c542");
+  const sw=34-Math.min(14,-y/2);ctx.globalAlpha=.35;R(W/2-sw/2,GY+2,sw,4,"#000");ctx.globalAlpha=1;
+  let img=F[0];
+  if(now<blinkEnd)img=F[1];
+  else if(gaze<0)img=F[2];
+  else if(gaze>0)img=F[3];
+  else if(X.length&&X.every(ok))img=X[Math.floor(t*6)%X.length];
+  if(!ok(img))img=F[0];
+  if(ok(img)){
+    let sx=1,sy=1;if(air){sx=.94;sy=1.06}else if(now<sq){sx=1.12;sy=.88}
+    const bob=(!air&&!reduce&&Math.floor(t/.45)%2)?-2:0;
+    ctx.save();ctx.translate(W/2,GY+4+y+bob);ctx.scale(sx,sy);ctx.drawImage(img,-SW/2,-SH,SW,SH);ctx.restore();
+  }
+  ctx.font="12px 'Press Start 2P',monospace";
+  parts.forEach(p=>{ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.col;ctx.fillText(p.ch,Math.round(p.x),Math.round(p.y))});
+  ctx.globalAlpha=1;
+}
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000||0);last=now;
+  if(vis&&!reduce){
+    if(!air&&now>nextHop){hop(200,now);nextHop=now+3500+Math.random()*2500}
+    if(air){vy+=900*dt;y+=vy*dt;if(y>=0){y=0;vy=0;air=false;sq=now+120}}
+    if(now>nextBlink){blinkEnd=now+130;nextBlink=now+2000+Math.random()*3000}
+    parts.forEach(p=>{p.vy+=220*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt*.9});parts=parts.filter(p=>p.life>0);
+  }
+  if(vis)draw(now);
+  requestAnimationFrame(frame);
+}
+if(reduce){F[0].onload=()=>draw(0);draw(0)}else requestAnimationFrame(frame);
+say();
+})();
+</script>
+</body>
+</html>
